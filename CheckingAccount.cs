@@ -19,7 +19,7 @@ namespace Prog_124_Practice_Virtual_Overriding_New
 
         public override bool Withdraw(double amount)
         {
-            bool withdraw = base.Withdraw(amount);
+            bool withdraw = amount > 0 && Balance >= amount;
             if (!withdraw)
             {
                 Balance -= _overdraftFee;
@@ -29,6 +29,11 @@ namespace Prog_124_Practice_Virtual_Overriding_New
         public override string ToString()
         {
             return base.ToString() + $" Added Fee: {_overdraftFee}";
+        }
+
+        public override bool Deposit(double amount)
+        {
+            throw new NotImplementedException();
         }
     }
 }

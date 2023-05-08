@@ -20,9 +20,19 @@ namespace Prog_124_Practice_Virtual_Overriding_New
         {
             if (amount > 0)
             {
-                base.Deposit(amount);
-                Balance += (amount * _interest);
-                return true;
+                //Deposit(amount);
+                if (amount > 0)
+                {
+                    //Balance += amount;
+                    //return true;
+                    Balance += (amount * _interest);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                
             }
             else
             {
@@ -32,6 +42,11 @@ namespace Prog_124_Practice_Virtual_Overriding_New
         public override string ToString()
         {
             return base.ToString() + $" Interest Added: {_interest}";
+        }
+
+        public override bool Withdraw(double amount)
+        {
+            throw new NotImplementedException();
         }
     }
     
